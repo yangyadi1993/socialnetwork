@@ -1,0 +1,70 @@
+{% extends "base_grumblr.html" %}
+{% block title %}Login{% endblock %}
+{% block nav %}
+
+
+<li class="active"><a href="login">Log in</a></li>
+
+
+                {% endblock %}
+{% block content %}
+
+
+
+    <div class="container-fluid">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+
+        <div class="jumbotron">
+            <form class="form-signin" method="post" action="{% url 'login' %}">{% csrf_token %}
+                <h2 class="form-signin-heading">Grumblr</h2>
+                <label for="inputEmail" class="sr-only">{{form.username.label_tag}}</label>
+                {{form.username}}
+                <br>
+                </br>
+                <label for="inputPassword" class="sr-only">{{form.password.label_tag}}</label>
+                <div>{{form.password}}</div>
+                            {% if form.errors %}
+    <p class="warning">Incorrect user name and password.</p>
+    {% endif %}
+                
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Log in</button>
+                <div class="link">
+                    <a href="/grumblr/user/password/reset">Forget password</a>
+                </div>
+                <div class="link">
+                    <p>Not a member?<a href="/grumblr/signin">Join Now</a>
+                    </p>
+                </div>
+                <input type="hidden" name="next" value="{{next}}">
+                
+            </form>
+          </div>
+      </div>
+    </div>
+
+    <!-- /container -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./css/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+
+
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="../../static/css/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../static/css/ie10-viewport-bug-workaround.js"></script>
+{% endblock content %}

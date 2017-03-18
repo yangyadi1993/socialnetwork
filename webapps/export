@@ -1,0 +1,8 @@
+# added by Anaconda3 4.0.0 installer
+export PATH="//anaconda/bin:$PATH"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export AWS_ACCESS_KEY_ID='AKIAJALP67MDSIEGSPEA'
+export AWS_SECRET_ACCESS_KEY=‘*********************’
+export EMAIL_HOST_PASSWORD=‘***************’
+export SECRET_KEY=‘******************************’

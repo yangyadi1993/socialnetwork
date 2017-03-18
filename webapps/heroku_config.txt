@@ -1,0 +1,8 @@
+AWS_ACCESS_KEY_ID:     AKIAJALP67MDSIEGSPEA
+AWS_SECRET_ACCESS_KEY: *************
+BUILDPACK_URL:         https://github.com/kennethreitz/conda-buildpack.git
+DATABASE_URL:          postgres://uvqylpkmyylzvb:bgvqEUMzBy9CvpHKFYsYHGXBqB@ec2-23-23-225-81.compute-1.amazonaws.com:5432/d9760gbcb28o37
+EMAIL_HOST_PASSWORD:   *********
+PATH:                  /app/.heroku/anaconda/bin:/usr/local/bin:/usr/bin:/bin
+S3_BUCKET_NAME:        grumblryadiy
+SECRET_KEY:            *************

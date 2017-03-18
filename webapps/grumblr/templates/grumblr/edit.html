@@ -1,0 +1,81 @@
+{% extends "base_grumblr.html" %}
+{% block title %}Edit{% endblock %}
+{% block nav %}
+
+
+                    <li class="active"><a href="login">Log in</a></li>
+
+{% endblock %}
+{% block content %}
+
+    <div class="container-fluid">
+      <div class="col-md-3">
+      </div>
+      <div class="col-md-6">
+
+        <div class="jumbotron">
+    {% for error in form1.non_field_errors %}
+    <p class="warning">{{ error }}</p>
+    {% endfor %}
+   {% for error in form2.non_field_errors %}
+    <p class="warning">{{ error }}</p>
+    {% endfor %}
+            <form enctype="multipart/form-data" class="form-signin" method="post" action="{% url 'edit' id%}">{% csrf_token %}
+                <h2 class="form-signin-heading">Grumblr</h2>
+                            <br>
+            <table>
+            {% for field in form1.visible_fields %}
+            <tr>
+                <td>{{field.label_tag}}</label></td>
+                <td class="form-control">{{field}}</td>
+                <td class="warning">{{field.errors}}</td>
+            </tr>
+            {% endfor %}
+            {% for field in form2.visible_fields %}
+            <tr>
+                <td>{{field.label_tag}}</label></td>
+                <td class="form-control">{{field}}</td>
+                <td class="warning">{{field.errors}}</td>
+            </tr>
+            {% endfor %}
+
+        </table>
+        {% for field in form1.hidden_fields %}
+{{field}}
+{% endfor %}
+        {% for field in form2.hidden_fields %}
+{{field}}
+{% endfor %}
+                <br>
+                <br>
+                <br>
+                <br>
+
+
+                <button class="btn btn-lg btn-primary btn-block" type="submit" value="login">Save</button>
+
+                <input type="hidden" name="next" value="{{next}}">
+                
+            </form>
+          </div>
+      </div>
+    </div>
+
+    <!-- /container -->
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="./css/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+
+    <!-- /.container -->
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+    window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="../../static/css/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../static/css/ie10-viewport-bug-workaround.js"></script>
+{% endblock %}
